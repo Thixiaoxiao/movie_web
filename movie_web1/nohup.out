@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "manage.py", line 17, in <module>
+    "Couldn't import Django. Are you sure it's installed and "
+ImportError: Couldn't import Django. Are you sure it's installed and available on your PYTHONPATH environment variable? Did you forget to activate a virtual environment?
+Traceback (most recent call last):
+  File "manage.py", line 17, in <module>
+    "Couldn't import Django. Are you sure it's installed and "
+ImportError: Couldn't import Django. Are you sure it's installed and available on your PYTHONPATH environment variable? Did you forget to activate a virtual environment?

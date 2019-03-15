@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]>
+<html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>
+<html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>
+<html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="en"> <!--<![endif]-->
+<head>
+
+    <!-- Basic Page Needs
+  ================================================== -->
+    <meta charset="utf-8">
+    <title>zMovie</title>
+    <meta name="description" content="晨曦遇晓">
+    <meta name="author" content="晨曦遇晓">
+    <meta name="renderer" content="webkit">
+    <!-- Mobile Specific Metas
+  ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- CSS
+  ================================================== -->
+    <link rel="stylesheet" href="css/zerogrid.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <!--[if lt IE 8]>
+    <div style=' clear: both; text-align:center; position: relative;'>
+        <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+            <img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0"
+                 height="42" width="820"
+                 alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."/>
+        </a>
+    </div>
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="js/html5.js"></script>
+    <script src="js/css3-mediaqueries.js"></script>
+
+    <![endif]-->
+
+</head>
+<body>
+<div class="wrap-body">
+
+    <!--////////////////////////////////////Header-->
+    <header>
+        <div class="top-bar">
+            <div class="wrap-top zerogrid">
+                <div class="row">
+                    <div class="col-1-2">
+                        <div class="wrap-col">
+                            <ul>
+                                <li class="mail"><p class="email_address">ContacUst@Gmail.com</p></li>
+                                <li class="phone"><p class="phone_number">80 88888 7</p></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-1-2">
+                        <div class="wrap-col f-right">
+                            <ul>
+                                <li><select @change="fLanguageChange">
+                                    <option value="ch" selected>中文简体</option>
+                                    <option value="en">English</option>
+                                </select></li>
+                                <li>
+                                    <p class="language_select">语言选择</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="wrap-header zerogrid">
+            <div class="row">
+                <div class="col-1-2">
+                    <div class="wrap-col">
+                        <div class="logo"><a href="/"><img src="images/logo.png"/></a></div>
+                    </div>
+                </div>
+                <div class="col-1-2">
+                    <div class="wrap-col f-right">
+                        <form method="get" action="/search.html" id="search">
+                            <input name="q" type="text" size="40" placeholder="Search..."/>
+                            <input type="submit" value="搜  索" class="submit_title">
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div id="menu">
+                    <nav>
+                        <div class="wrap-nav">
+                            <ul>
+                                <li><a href="index.html" class="home_title">首 页</a></li>
+                                <li><a href="praise.html" class="praise_title">高 分 电 影</a></li>
+                                <li><a href="inland.html" class="chinese_movie">内 陆 电 影</a></li>
+                                <li><a href="occ.html" CLASS="occident_movie">欧 美 电 影</a></li>
+                                <li><a href="jkorea.html" class="Japan_Korea_movie">日 韩 电 影</a></li>
+                                <li><a href="areas.html" class="area_title">地 区</a></li>
+                                <li class="active"><a href="subjects.html" class="subject_title">专 题</a></li>
+                                <li><a href="contact.html" class="contact_title">留 言</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+
+        </div>
+    </header>
+
+    <!--////////////////////////////////////Container-->
+    <section id="container">
+        <div class="wrap-container zerogrid">
+            <div id="main-content" class="col-2-3">
+                <div class="wrap-content">
+                    <div class="movie">
+
+
+
+
+
+                        <div class="row type">
+                            <div class="title">
+                                <center><h2 >专  题 </h2></center>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <!--TODO 添加专题-->
+                            <div class="wid-content">
+                                <!--循环遍历-->
+                                <div style="width: 95%;margin:0 auto;" v-for="item in tags_list">
+                                    <div style="width: 100%;height: 30px;" ><p></p></div>
+                                        <ul >
+                                        <!--标签-->
+                                            <li  style="margin-left: 60px;margin-right:60px ;margin-top:50px; " v-for="iz in item.namelist">
+                                                <a @click="jump_to_subject(item.key,iz.id)"  href="#"  style="background: goldenrod;float:left;height: 28px;color:beige;margin: 5px;padding: 8px;text-align: center;vertical-align:middle;display: table-cell ">{{ iz.name }}</a>
+                                            </li>
+                                        </ul>
+
+                                </div>
+
+
+
+                            </div>
+
+
+
+
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div id="sidebar" class="col-1-3">
+                <div class="wrap-sidebar">
+                    <!---- Start Widget ---->
+                    <div class="widget wid-new-updates">
+                        <div class="wid-header">
+                            <h5 class="Click_Rank">点 击 排 行 </h5>
+                        </div>
+                        <div class="wid-content">
+                            <ul>
+                                <li v-for="item in click_rank_list"><a :href="item.m_detail_url">{{ item.mname
+                                    }}</a><span><img src="images/hot.png"/></span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!---- Start Widget ---->
+                    <div class="widget wid-post">
+                        <div class="wid-header">
+                            <h5 class="mark_rank_title">评 分 排 行</h5>
+                        </div>
+                        <div class="wid-content">
+                            <div class="post" v-for="item in evaluate_movie_list">
+                                <a :href="item.m_detail_url"><img :src="item.mimage"/></a>
+                                <div class="wrapper">
+                                    <a :href="item.m_detail_url"><h6>{{ item.mname }}</h6></a>
+                                    <p>{{ item.mshowtime }}</p>
+                                    <a :href="item.m_detail_url"><img :src="item.m_evaluate_image"/></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!---- Start Widget ---->
+                    <div class="widget wid-last-updates">
+                        <div class="wid-header">
+                            <h5 class="last_update_title">近 日 更 新</h5>
+                        </div>
+                        <div class="wid-content">
+
+                            <div class="post" v-for="item in movie_list_news">
+                                <a :href="item.m_detail_url"><img :src="item.mimage"/></a>
+                                <div class="wrapper">
+                                    <a :href="item.m_detail_url"><h6>{{ item.mname }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h6></a>
+                                    <p>{{ item.mshowtime }}</p>
+                                    <a :href="item.m_detail_url"><img :src="item.m_evaluate_image"/></a>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--////////////////////////////////////Footer-->
+    <footer>
+        <div class="zerogrid">
+            <div class="wrap-footer">
+                <div class="row">
+                    <div class="col-1-4">
+                        <div class="wrap-col">
+                            <div class="widget wid-about">
+                                <div class="wid-header">
+                                    <h5>Welcome</h5>
+                                </div>
+                                <div class="logo"><a href="#"><img src="images/logo.png"/></a></div>
+                                <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque quod maxime placeat
+                                    facere possimus nihil impedit quo minus id quod maxime placeat facere possimus. </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-1-4">
+                        <div class="wrap-col">
+                            <div class="widget wid-meta">
+                                <div class="wid-header">
+                                    <h5>Links List</h5>
+                                </div>
+                                <div class="widget-content">
+                                    <div class="row">
+                                        <ul>
+                                            <li v-for="item in friend_links_list_1"><a :href="item.linkurl">> {{ item.linkname }} </a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-1-4">
+                        <div class="wrap-col">
+                            <div class="widget wid-report">
+                                <div class="wid-header">
+                                    <h5>Report Link</h5>
+                                </div>
+                                <div class="wid-content">
+                                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+                                        eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+                                        voluptua.
+                                        At vero eos et accusam et justo duo dolores et ea rebum. Consetetur sadipscing
+                                        elitr,
+                                        sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-1-4">
+                        <div class="wrap-col">
+                            <div class="widget wid-meta">
+                                <div class="wid-header">
+                                    <h5>Links List</h5>
+                                </div>
+                                <div class="widget-content">
+                                    <div class="row">
+                                        <ul>
+                                            <li v-for="item in friend_links_list_2"><a :href="item.linkurl">> {{ item.linkname }} </a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-footer">
+            <div class="wrap-bottom ">
+                <div class="copyright">
+                    <p>©2019 - More Movies <a href="/" target="_blank">晨曦遇晓</a> - Create in <a href="/" target="_blank">蜀:5fgsdadfsdf454fkdgfgd
+                        号</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+</div>
+<script src="js/argument.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/axios-0.18.0.min.js"></script>
+<script src="js/css3-mediaqueries.js"></script>
+<script src="js/vue.min.js"></script>
+<script src="js/subjectsget.js"></script>
+</body>
+</html>
